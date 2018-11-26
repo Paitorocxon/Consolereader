@@ -35,6 +35,17 @@
 	}
 #endif 
 
+
+//UNIX PART
+#include <stdio.h>
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
+
 //=====================Here starts the normal crap-stuff
 using namespace std;
 
@@ -201,17 +212,17 @@ using namespace std;
 				
 				xi++;
 				if (Y+xi <= 9){
-					cout << "[" << Y+xi << "     ]####| ";
+					cout << ANSI_COLOR_RED << "[" << ANSI_COLOR_CYAN << Y+xi << ANSI_COLOR_RED << "     ]####| ";
 				} else if (Y+xi > 9 && Y+xi < 100) {					
-					cout << "[" << Y+xi << "    ]####| ";					
+					cout << ANSI_COLOR_RED << "[" << ANSI_COLOR_CYAN << Y+xi << ANSI_COLOR_RED << "    ]####| ";					
 				} else if (Y+xi > 99 && Y+xi < 1000) {					
-					cout << "[" << Y+xi << "   ]####| ";					
+					cout << ANSI_COLOR_RED << "[" << ANSI_COLOR_CYAN << Y+xi << ANSI_COLOR_RED << "   ]####| ";					
 				} else if (Y+xi > 999 && Y+xi < 10000) {					
-					cout << "[" << Y+xi << "  ]####| ";					
+					cout << ANSI_COLOR_RED << "[" << ANSI_COLOR_CYAN << Y+xi << ANSI_COLOR_RED << "  ]####| ";					
 				} else if (Y+xi > 9999 && Y+xi < 100000) {					
-					cout << "[" << Y+xi << " ]####| ";					
+					cout << ANSI_COLOR_RED << "[" << ANSI_COLOR_CYAN << Y+xi << ANSI_COLOR_RED << " ]####| ";					
 				} else if (Y+xi > 99999 && Y+xi < 1000000) {					
-					cout << "[" << Y+xi << "]####| ";					
+					cout << ANSI_COLOR_RED << "[" << ANSI_COLOR_CYAN << Y+xi << ANSI_COLOR_RED << "]####| ";					
 				}
 	
 				
