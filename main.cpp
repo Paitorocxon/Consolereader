@@ -37,12 +37,24 @@
 using namespace std;
 
 
-
+	inline bool file_exists (const std::string& name) {
+	    ifstream f(name.c_str());
+	    return f.good();
+	}
 	int main (int argc, char *argv[], char *envp[]) {
 		if (argc < 2){
 			cout << "Usage is <PATH/TO/FILE.txt>";
 			exit(0);
 		}
+		if (file_exists(argv[1])){
+			
+		} else {
+			cout << "The File you gave me '" << argv[1] << " does not exist! :/";
+			exit(0);
+		}
+		
+
+		
 		
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 		int X = 0;
@@ -55,20 +67,10 @@ using namespace std;
 		std::string filepath = argv[1];
 		
 		
-		/*
-		std::ifstream PAIS_FILE("C:\\Users\\Niggi Gamin'\\Desktop\\test.txt"); //Read PAIS- File with ifstream
-		std::string LINE;
-		for( std::string line; getline(PAIS_FILE, LINE); ){	
-			cout << "Line is '" << LINE << "'" << "\n";
-			
-			for(std::string::size_type i = 0; i < LINE.size(); ++i) {
-			    cout << LINE[i]  << "\n";
-			}
-		}
-		*/
+
 		int ch;
 		
-		_cputs( "Type 'Y' when finished typing keys: " );
+		_cputs( "Press X to exit the Program! [hit any key to continue] " );
 		do
 		{
 		ch = _getch();
@@ -142,7 +144,9 @@ using namespace std;
 			cout << "      [X] Exit Program  " << "\n";
 			cout << "      [H] Show Help (This)  " << "\n";
 		
-
+		
+	
+		
 		
 				getch();
 				
@@ -282,9 +286,9 @@ using namespace std;
 						}else if (TwoLineChars == "//"){
 							SetConsoleTextAttribute(hConsole, 11);
 						}else if (LineChar == "{"){
-							SetConsoleTextAttribute(hConsole, 9);
+							SetConsoleTextAttribute(hConsole, 14);
 						}else if (LineChar == "}"){
-							SetConsoleTextAttribute(hConsole, 9);
+							SetConsoleTextAttribute(hConsole, 14);
 						}else if (LineChar == "#"){
 							SetConsoleTextAttribute(hConsole, 3);
 						}else if (LineChar == "="){
@@ -293,9 +297,19 @@ using namespace std;
 							SetConsoleTextAttribute(hConsole, 12);
 						}else if (LineChar == ","){
 							SetConsoleTextAttribute(hConsole, 6);
-						}else if (LineChar == "."){
+						}else if (LineChar == ","){
 							SetConsoleTextAttribute(hConsole, 6);
+						}else if (LineChar == "<"){
+							SetConsoleTextAttribute(hConsole, 6);
+						}else if (LineChar == ">"){
+							SetConsoleTextAttribute(hConsole, 6);
+						}else if (TwoLineChars == "/*"){
+							SetConsoleTextAttribute(hConsole, 11);
 							
+						}else if (LineChar == "\t"){
+							SetConsoleTextAttribute(hConsole, 136);
+						}else if (TwoLineChars == "\v"){
+							SetConsoleTextAttribute(hConsole, 136);
 							
 							
 							
@@ -326,118 +340,119 @@ using namespace std;
 							
 							
 							
-						/*
-						}else if (LineChar == "a"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "b"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "c"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "d"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "e"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "f"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "g"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "h"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "i"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "j"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "k"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "l"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "m"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "n"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "o"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "p"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "q"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "r"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "s"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "t"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "u"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "v"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "w"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "x"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "y"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "z"){
-							SetConsoleTextAttribute(hConsole, 14);
+						
+						}else if (TwoLineChars == " a"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " b"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " c"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " d"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " e"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " f"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " g"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " h"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " i"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " j"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " k"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " l"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " m"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " n"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " o"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " p"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " q"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " r"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " s"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " t"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " u"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " v"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " w"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " x"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " y"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " z"){
+							SetConsoleTextAttribute(hConsole, 15);
 							
 							
 							
 							
 							
-						}else if (LineChar == "A"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "B"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "C"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "D"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "E"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "F"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "G"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "H"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "I"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "J"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "K"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "L"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "M"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "N"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "O"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "P"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "Q"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "R"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "S"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "T"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "U"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "V"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "W"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "X"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "Y"){
-							SetConsoleTextAttribute(hConsole, 14);
-						}else if (LineChar == "Z"){
-							SetConsoleTextAttribute(hConsole, 14);
+							
+						}else if (TwoLineChars == " A"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " B"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " C"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " D"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " E"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " F"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " G"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " H"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " I"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " J"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " K"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " L"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " M"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " N"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " O"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " P"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " Q"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " R"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " S"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " T"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " U"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " V"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " W"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " X"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " Y"){
+							SetConsoleTextAttribute(hConsole, 15);
+						}else if (TwoLineChars == " Z"){
+							SetConsoleTextAttribute(hConsole, 15);
 	
-						*/
+						
 						} else  if (TwoLineChars == "  "){
 							SetConsoleTextAttribute(hConsole, 15);
 						}
